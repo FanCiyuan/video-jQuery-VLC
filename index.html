@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>视频监控</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="header-title">
+                    <h5 class="header-title-h4">
+                        <span class="header-title-box1"></span>
+                        <span class="header-title-box2"></span>
+                        <span>贵州高投大数据策略系统视频监控子系统（测试）</span>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 main-left ">
+                <div class="menu">
+                    <div class="list-group">
+                        <a href="./index.html" class="list-group-item active">首页</a>
+                        <a href="./cameraManage.html" class="list-group-item">摄像头管理</a>
+                        <a href="./plugIn.html" class="list-group-item">插件下载</a>
+                        <a href="./login.html" class="list-group-item">退出</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 main-center">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="center-top">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="center-bottom-left">
+                                        <div class="center-bottom-left-title">
+                                            <div class="pull-left">
+                                                <span>一号</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>监视口</span>
+                                            </div>
+                                        </div>
+                                        <div class="center-bottom-left-video"  id="video1"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="center-bottom-right">
+                                        <div class="center-bottom-left-title">
+                                            <div class="pull-left">
+                                                <span>二号</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>监视口</span>
+                                            </div>
+                                        </div>
+                                        <div class="center-bottom-left-video"  id="video2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="center-bottom-left">
+                                        <div class="center-bottom-left-title">
+                                            <div class="pull-left">
+                                                <span>三号</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>监视口</span>
+                                            </div>
+                                        </div>
+                                        <div class="center-bottom-left-video"  id="video3"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="center-bottom-right">
+                                        <div class="center-bottom-left-title">
+                                            <div class="pull-left">
+                                                <span>四号</span>
+                                            </div>
+                                            <div class="pull-right">
+                                                <span>监视口</span>
+                                            </div>
+                                        </div>
+                                        <div class="center-bottom-left-video"  id="video4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 main-right">
+                <div class="vide-control-list text-right">
+                    <div>
+                        <h6 class="" style="color: #87FFFF">一 号监视口控制</h6>
+                        <div class="dropdown hidden">
+                            <div class="list-group" id="controlVideo1"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="" style="color: #87FFFF">二 号监视口控制</h6>
+                        <div class="dropdown hidden">
+                            <div class="list-group" id="controlVideo2"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="" style="color: #87FFFF">三 号监视口控制</h6>
+                        <div class="dropdown hidden">
+                            <div class="list-group" id="controlVideo3"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="" style="color: #87FFFF">四 号监视口控制</h6>
+                        <div class="dropdown hidden">
+                            <div class="list-group" id="controlVideo4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" >
+               <span>贵阳红鸟智能服务有限公司</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/app.js"></script>
+</html>

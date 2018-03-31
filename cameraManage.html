@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>视频监控</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/camera.css">
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./plug-in/jquery.serializejson.min.js"></script>
+    <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="header-title">
+                    <h5 class="header-title-h4">
+                        <span class="header-title-box1"></span>
+                        <span class="header-title-box2"></span>
+                        <span>贵州高投大数据策略系统视频监控子系统（测试）</span>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2 main-left " >
+                <div class="menu">
+                    <div class="list-group">
+                        <a href="./index.html" class="list-group-item">首页</a>
+                        <a href="./cameraManage.html" class="list-group-item active">摄像头管理</a>
+                        <a href="./plugIn.html" class="list-group-item">插件下载</a>
+                        <a href="./login.html" class="list-group-item">退出</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 main-center">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="center-top">
+                            <div class="center-top-btn">
+                                <button class="btn btn-info"  data-toggle="modal" data-target="#addCameraModule">
+                                    新增摄像头
+                                </button>
+                            </div>
+                            <div class="center-top-table">
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>名称</th>
+                                            <th>位置</th>
+                                            <th>删除</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableTbody"></tbody>
+                                </table>
+                            </div>
+                            <ul class="pagination" id="pagination"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" >
+               <span>贵阳红鸟智能服务有限公司</span>
+            </div>
+        </div>
+    </div>
+    <!-- 增加模态框 -->
+    <div class="modal fade" id="addCameraModule">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h6 class="modal-title">新增摄像头</h6>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form action="" method="post" id="addForm">
+                        <div class="form-group">
+                            <label for="camera_idAdd">摄像头序号</label>
+                            <input type="text" class="form-control"  name="camera_id" id="camera_idAdd">
+                        </div>
+                        <div class="form-group">
+                            <label for="camera_nameAdd">摄像头名称</label>
+                            <input type="text" class="form-control"  name="camera_name" id="camera_nameAdd">
+                        </div>
+                      <!--  <div class="form-group">
+                            <label for="camera_switchAdd">请选择摄像头状态</label>
+                            <select class="form-control"  name="camera_switch" id="camera_switchAdd">
+
+                                <option value="0">关闭</option>
+                                <option value="1">打开</option>
+                            </select>
+                        </div>-->
+                        <div class="form-group">
+                            <label for="placeAdd">摄像头位置</label>
+                            <input type="number" class="form-control"  id="placeAdd" name="place">
+                        </div>
+                        <div class="form-group">
+                            <label for="urlAdd">视频流地址</label>
+                            <input type="text" class="form-control" id="urlAdd" name="url">
+                        </div>
+                    </form>
+                </div>
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" data-dismiss="modal" id="addCamera">保存</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 修改模态框 -->
+    <div class="modal fade" id="modCameraModule">
+        <div class="modal-dialog">
+            <div class="modal-content modification">
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h6 class="modal-title">修改摄像头</h6>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    <form action="" method="post" id="modCFormMod">
+                       <!-- <div class="form-group">
+                            <label for="camera_idMod">新摄像头序号</label>
+                            <input type="text" class="form-control"  name="camera_id" id="camera_idMod">
+                        </div>
+                        <div class="form-group">
+                            <label for="camera_nameMod">修改摄像头名称</label>
+                            <input type="text" class="form-control"  name="camera_name" id="camera_nameMod">
+                        </div>
+                        <div class="form-group">
+                            <label for="camera_switchMod">修改摄像头状态</label>
+                            <select class="form-control"  name="camera_switch" id="camera_switchMod">
+                                <option>请选择摄像头状态</option>
+                                <option value="0">关闭</option>
+                                <option value="1">打开</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="placeMod">修改摄像头位置</label>
+                            <input type="number" class="form-control"  id="placeMod" name="place">
+                        </div>
+                        <div class="form-group">
+                            <label for="urlMod">修改视频流地址</label>
+                            <input type="text" class="form-control" id="urlMod" name="url">
+                        </div>
+                        <div class="form-group">
+                            <label for="camera_idModbefore">摄像头修改前序号</label>
+                            <input type="text" class="form-control"  name="update_id" id="camera_idModbefore">
+                        </div>-->
+                    </form>
+                </div>
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" data-dismiss="modal" id="ModCamera">保存</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src='js/cameras.js'></script>
+</html>

@@ -1,0 +1,115 @@
+/**
+ * Created by wangwenjun on 2018/2/22.
+ * project name ...
+ */
+body,html{
+    color: white;
+    background: #151A30;
+}
+
+/*头部*/
+.header{
+    height: 6vh;
+    border-bottom: 1px solid #404259;
+    padding-top: 10px;
+}
+.header-title{
+    position: relative;
+    text-align: center;
+}
+.header-title-h4{
+    margin-bottom: 0;
+    border-bottom: 1px solid #ADB9D1;
+    padding-bottom: 5px;
+}
+.header-title-box1{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #648ED6;
+}
+.header-title-box2{
+    display: inline-block;
+    margin-left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid #648ED6;
+    border-right: 16px solid transparent;
+}
+.header-icon {
+    float: right;
+    overflow: hidden;
+
+}
+.header-icon-img{
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/*主体*/
+.main{
+    height: 89vh;
+    padding-top: 1vh;
+}
+
+/*主体左边*/
+.main-left{
+    padding-right: 0;
+}
+
+/*主体中部*/
+.main-center{
+
+}
+.center-top{
+    padding: 1vh;
+    border:1px solid #3B425C;
+}
+.center-top{
+    height: 88vh;
+    padding-top: 20px;
+}
+
+/*主体中部下左*/
+.center-top-btn{
+    margin-bottom: 20px;
+    float: right;
+}
+
+.footer{
+    height: 5vh;
+    text-align: center;
+    padding-top: 5px;
+}
+.footer p{
+    margin-bottom: 0;
+
+}
+
+/*bootstrap改造*/
+.menu{
+    height: 100%;
+    border:1px solid #3B425C;
+    padding-left: 15px;
+}
+.menu>.list-group{
+
+}
+.menu>.list-group>.list-group-item{
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.list-group>a{
+    color: white;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.list-group-item.active{
+    color: #87FFFF;
+}
+
